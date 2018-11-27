@@ -1,0 +1,195 @@
+@import "bootstrap/buttons";
+button, a, span, div{
+  &.fa{
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color:rgba($brand-text-color, 0.50);
+  }
+  &.btn{
+    font-weight: $font-bold;
+    line-height: 70%;
+    &:active{
+      &:hover,
+      &:focus{
+        background-color:$btn-default-bg;
+        color:$brand-text-color;
+        border: 1px solid rgba($brand-text-color, 0.20);
+        outline:$none-value;
+        box-shadow:$none-value;
+      }
+    }
+
+  }
+  &.btn-default{
+    padding: $default-button-padding;
+  }
+
+  &.btn-default,
+  &.btn-default:focus,
+  &.btn-default:hover{
+      background-color: $brand-white-color;
+      color:$brand-text-color;
+      border-radius: $default-button-radius;
+      display: inline-block;
+      border: 1px solid rgba($brand-text-color, 0.20);
+
+  }
+
+  &.btn-default:hover{
+    @include transition($base-transition);
+    @include box-shadow(0 0 4px 0 rgba($brand-text-color, 0.20));
+  }
+
+  &.btn-default:active{
+    background: transparent;
+    box-shadow: $none-value;
+  }
+
+  &.btn-primary,
+  &.btn-success{
+     background-color: $brand-primary-color;
+     border: 1px solid $brand-primary-color;
+     color: $brand-white-color;
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus{
+      background-color: $button-hover-primary-color;
+      color: #fff;
+      @include transition($button-transition-animation);
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &.btn-small{
+    padding: $default-button-padding-small;
+  }
+
+  &.btn-link{
+    padding: 0;
+    border: $none-value;
+    text-transform: uppercase;
+    font-size:$btn-link-default-size;
+    letter-spacing: 1px;
+    font-weight: $font-bold;
+    color: $brand-primary-color;
+    outline:$none-value;
+    &.disabled{
+      color: rgba($brand-primary-color, 0.20);
+      cursor: none;
+      pointer-events: none;
+      cursor: default;
+      &:hover{
+        cursor: none;
+        color: rgba($brand-primary-color, 0.20);
+      }
+    }
+    &:hover,
+    &:focus{
+      color: $button-hover-primary-color;
+      text-decoration: $none-value;
+      background-color: transparent;
+      @extend .btn-link;
+    }
+
+    &.secondary{
+        color: rgba($brand-text-color, 0.50);
+
+      &:hover{
+        color: $brand-text-color;
+        @include transition($button-transition-animation);
+      }
+
+      &.disabled{
+        color: rgba($brand-text-color, 0.20);
+        cursor: none;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+    &:active{
+      &:hover,
+      &:focus{
+        background-color:transparent;
+        color:$brand-text-color;
+        border:0;
+        outline:$none-value;
+        box-shadow:$none-value;
+      }
+    }
+  }
+
+  .draggable{
+    color: rgba($brand-text-color, 0.50);
+    margin-bottom: 4px;
+
+    &:hover{
+      color: $brand-text-color;
+
+      span{
+        @include opacity(1);
+        @include transition($base-transition);
+      }
+    }
+
+    span{
+      @include opacity(0);
+      &.icon-delete{
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+
+  .primary-border{
+    border:1px solid $brand-primary-color;
+  }
+}
+
+.list-box{
+  background-color: rgba(21, 162, 237, 0.05);
+  border-radius: $default-radius;
+  display: inline-block;
+  border: 1px solid rgba($brand-primary-color, 0.60);
+  padding: 0 8px;
+  color: $brand-text-color;
+  margin-bottom: 4px;
+  margin-right: 4px;
+  line-height: 70%;
+
+  i{
+    padding: 0;
+    border-right: 1px solid rgba($brand-primary-color, 0.60);
+    margin-right: 8px;
+    color: rgba(52, 64, 80, 0.3);
+    display: inline-block;
+    padding: 8px 4px;
+
+    &:hover{
+      color: rgba(52, 64, 80, 0.3);
+    }
+
+    &:before{
+      margin: 0;
+      display: block;
+      margin-left: 0;
+    }
+  }
+}
+
+.range_inputs{
+
+  button{
+    &.btn-success,
+    &.btn-default{
+      padding: 9px 12px;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+}

@@ -1,0 +1,80 @@
+@import "bootstrap/tables";
+
+.table{
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-family: $font-sans;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      &:hover{
+          background:$brand-table-hover-color;
+          @include transition(all 0.1s ease-in);
+      }
+      > th{
+        padding: 14px 20px;
+        text-transform: uppercase;
+        font-weight: $font-bold;
+        border-bottom: 0;
+        font-size: 11px;
+      }
+
+      > td {
+        padding: 14px 20px;
+        border-top: 0;
+        font-size: 11px;
+        text-transform: uppercase;
+        &:nth-last-child(2),
+        &:nth-last-child(1){
+          text-align: right;
+          p{
+            float: right;
+          }
+        }
+        a{
+          color: $brand-text-color;
+        }
+
+        &.vertical-middle{
+          @extend .vertical-middle;
+        }
+
+      }
+    }
+  }
+
+  > thead{
+    > tr {
+      &:hover{
+        background:transparent;
+      }
+      > th {
+        letter-spacing: 1px;
+
+        &:nth-last-child(2),
+        &:nth-last-child(1){
+          text-align: right;
+        }
+
+      }
+    }
+  }
+}
+
+.table-responsive {
+  margin-bottom: 0;
+
+  @media screen and (max-width: $screen-xs-max) {
+    border: $none-value;
+  }
+}
+
+.table-bordered{
+  border: transparent;
+}
+
+table td[class*="hide"]{
+  display: none;
+}
+

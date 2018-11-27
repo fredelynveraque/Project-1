@@ -1,0 +1,91 @@
+// ==========================================================================
+// Section - Header / Logo
+// ==========================================================================
+.header{
+  background-color:$brand-primary-color;
+  padding:7px 0;
+  float: left;
+  width: 100%;
+  line-height: 70%;
+  position: fixed;
+  z-index: 999;
+
+  .logo-container{
+    width: 16.8%;
+    float: left;
+
+    a.ig-logo {
+      background-image: url("../../img/ig-logo.svg");
+      width: 124px;
+      height: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: block;
+      position: relative;
+      float:left;
+      top:2px;
+    }
+  }
+}
+
+.top-toolbar{
+
+  .row{
+    padding: 0;
+    @media #{$small-only} {
+      .col-xs-4{
+        width: 100%;
+      }
+    }
+
+  }
+  width: 83.2%;
+  float: left;
+  .search-bar{
+    float:left;
+    padding-left: 40px;
+    width:100%;
+
+    i{
+
+      &.fa-search{
+        position: absolute;
+        top: 10px;
+        left: 63px;
+        color: rgba($brand-text-color, 0.40);
+        font-size: 11px;
+      }
+
+    }
+
+    input{
+      width:100%;
+      padding: 8px;
+      font-size:12px;
+      border:0;
+      padding-left: 26px;
+      &:focus,
+      &:active{
+        color: #344050;
+        background-color: $brand-white-color;
+        border-color:$none-value;
+      }
+      @media #{$small-only} {
+       display: none;
+      }
+      @media #{$custom-2} {
+        width:100%;
+      }
+
+      &::-webkit-input-placeholder{
+        position:relative;
+        top:0;
+        color:rgba($brand-text-color, 0.60);
+        @include rem(font-size, 12px);
+      }
+
+    }
+  }
+
+}

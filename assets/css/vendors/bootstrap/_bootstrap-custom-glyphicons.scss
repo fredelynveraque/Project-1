@@ -1,0 +1,30 @@
+@import "bootstrap/glyphicons";
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(#{$icon-font-path}#{$icon-font-name}.ttf) format('truetype');
+  src: url(#{$icon-font-path}#{$icon-font-name}.eot?#iefix)
+  format('embedded-opentype'),
+  url(#{$icon-font-path}#{$icon-font-name}.woff) format('woff'),
+  url(#{$icon-font-path}#{$icon-font-name}.ttf) , format('truetype'),
+  url(#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id})
+  format('svg');
+}
+
+.glyphicon{
+  @include icon-default-style($font-icon-default-color, $font-icon-default-size);
+  margin: 0 3px;
+  top:0;
+}
+
+.small{
+  font-size: 14px;
+}
+
+.npad{
+  margin: 0;
+}
+
+.for-glyph{
+  position: relative;
+  top:-2px;
+}

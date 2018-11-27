@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Prototype by Code Ninja</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.13/c3.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/animate.css/animate.min.css">
+
+    <!--&lt;!&ndash; Load d3.js and c3.js &ndash;&gt;-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>-->
+</head>
+<body>
+<div class="site-wrapper">
+    <section class="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="#" class="ig-logo"></a>
+            </div>
+            <div class="top-toolbar">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-7">
+                        <div id="searchBarDiv" class="search-bar">
+                            <i class="fa fa-search"></i>
+                            <input id="searchBar" type="text" name="" placeholder="Search product or company name">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-5">
+                        <div class="nav-section">
+                            <nav>
+                                <a href="#" class="search-icon"></a>
+                                <a href="#" class="help-icon"></a>
+                                <a href="#" class="chat-icon"></a>
+                                <div class="notification-container">
+                                    <!--<span class="notifications"></span>-->
+                                    <a data-trigger="focus" rel="popover" tabindex="0" href="#" class="notification-icon" role="button" data-container="body" data-toggle="popover" data-placement="bottom" title="Notifications" data-popover-content="#myNotifications"></a>
+                                </div>
+                                <a data-trigger="focus" rel="popover" tabindex="0" href="#" role="button" data-container="body" data-toggle="popover" data-placement="bottom"  data-popover-content="#myAccount"><img src="../public/img/avatar-default.png" class="avatar-icon"></a>
+                            </nav>
+                            <div id="myNotifications" class="pop-over-default with-footer-button hide myNotifications">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            You exported <strong>test.xls</strong> completed after 48 seconds.
+                                            <span>2 mins ago</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            You exported <strong>test2.xls</strong> completed after 48 seconds.
+                                            <span>May 19, 2017</span>
+                                        </a>
+                                    </li>                                    <li>
+                                    <a href="#">
+                                        You exported <strong>test3.xls</strong> completed after 48 seconds.
+                                        <span>May 19, 2017</span>
+                                    </a>
+                                </li>
+                                </ul>
+                                <a href="#" class="btn btn-link">View All</a>
+                            </div>
+                            <div id="myAccount" class="pop-over-default hide myAccount">
+                                <ul>
+                                    <li>
+                                        <a href="#">Account Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Email Alerts<span class="item-count blue-bg">4</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="body">
+        <div class="loader-container" hidden>
+            <div class="loader"></div>
+        </div>
+        <div class="container">
+            <section class="section-nav-filter">
+
+                <nav class="horizontal">
+                    <a href="#" data-tab="new-tab" class="nav-tab active">New</a>
+                    <a href="#" data-tab="previous-tab" class="nav-tab">Previous</a>
+                    <a href="#" data-tab="saved-tab" class="nav-tab">Saved</a>
+                </nav>
+                <div id="previous-tab" hidden class="search-history">
+
+                    <h3><i class="fa fa-clock-o"></i>Search History</h3>
+                    <i class="fa fa-sort small absolute-zero right"></i>
+                    <div class="history-panel">
+
+                        <ul>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Apple</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Coffee</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Computer</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Nike Inc.</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Table</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Banana</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div id="saved-tab" class="saved-tab" hidden>
+                    <h3><i class="fa fa-save"></i>Saved Searches</h3>
+                    <i class="fa fa-sort small absolute-zero right"></i>
+                    <div class="saved-panel">
+
+                        <ul>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Name 1</h4>
+                                <p>You search for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Sample Name 1</h4>
+                                <p>You search for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Name 1</h4>
+                                <p>You search for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Sample Name 2</h4>
+                                <p>You search for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Sample Name 4</h4>
+                                <p>Search term for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                            <li class="color-option-blue">
+                                <div class="top-controls">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                                <h4>Sample Name 10</h4>
+                                <p>You search for USA Import Data generated 25,281 results.</p>
+                                <i class="fa fa-calendar-o"></i><span>2017-06-08</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div id="new-tab" class="section-filter">
+                    <div class="filter-row main-filter">
+
+                        <h3>Filters</h3><button id="clearfilter" type="button" class="btn btn-link secondary" hidden>Clear</button>
+                        <div class="field">
+                            <div class="dropdown with-flag full-width">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <img class="flag" src="../public/img/flag/us.svg" alt="" />
+                                    US - Datasets
+                                    <span class="caret"></span>
+                                </button>
+                                <ul id="countrydropdown" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/ar.svg" alt="" />Argentina - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/bo.svg" alt="" />Bolivia - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/cl.svg" alt="" />Chile - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/co.svg" alt="" />Colombia - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/cr.svg" alt="" />Costa Rica - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/ec.svg" alt="" />Ecuador - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/in.svg" alt="" />India - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/mx.svg" alt="" />Mexico - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/pa.svg" alt="" />Panama - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/py.svg" alt="" />Paraguay - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/pe.svg" alt="" />Peru - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/ru.svg" alt="" />Russia - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/ua.svg" alt="" />Ukraine - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/uy.svg" alt="" />Uruguay - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/us.svg" alt="" />US - Datasets</a></li>
+                                    <li><a href="#"><img class="flag" src="../public/img/flag/ve.svg" alt="" />Venezuela - Datasets</a></li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        <div class="field collapse-bottom">
+                            <div class="dropdown full-width">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Import Data
+                                    <span class="caret"></span>
+                                </button>
+                                <ul id="importexportdata" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><a href="#" data-dropdown = '1'>Import Data</a></li>
+                                    <li><a href="#" data-dropdown = '2'>Export Data</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="field">
+                            <ul class="tag-lists">
+                                <li class="blank_cons animated fadeIn" style="display: none">Exclude Blank Consignee<span id="blank_cons_close"></span></li>
+                                <li class="exc_master animated fadeIn" style="display: none">Exclude Master<span id="exc_master_close"></span></li>
+                                <li class="house_only animated fadeIn" style="display: none">House Only<span id="house_only"></span></li>
+                                <li class="master_only animated fadeIn" style="display: none">Master Only<span id="master_only_close"></span></li>
+
+                                <li class="consignee animated fadeIn" style="display: none">Consignee<span id="consignee_close"></span></li>
+                                <li class="shipper animated fadeIn" style="display: none">Shipper(Supplier)<span id="shipper_close"></span></li>
+                                <li class="foreign_port animated fadeIn" style="display: none">Foreign Port<span id="foreign_port_close"></span></li>
+                                <li class="vessel_name animated fadeIn" style="display: none">Vessel Name<span id="vessel_name_close"></span></li>
+                                <li class="country_origin animated fadeIn" style="display: none">Country of Origin<span id="country_origin_close"></span></li>
+                            </ul>
+                        </div>
+                        <div class="field">
+                            <button type="button" class="btn btn-link save" hidden>Save Search</button>
+                            <input type="text" class="save_search_textbox" hidden />
+                            <button type="button" class="btn btn-link save-search" hidden>Save</button>
+                            <button type="button" class="btn btn-link save-search2" hidden>Cancel</button>
+                        </div>
+                    </div>
+                    <div id="showResultsFor" class="filter-row" hidden>
+                        <h3>Show Results For</h3>
+                        <ul class="base-checkbox">
+                            <li><label class="control control-checkbox">Consignee<input class="refine_controls" id="consignee_control" type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                            <li><label class="control control-checkbox">Shipper(Supplier)<input class="refine_controls" id="shipper_control" type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                            <li><label class="control control-checkbox">Foreign Port<input class="refine_controls" id="foreign_port_control" type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                            <li><label class="control control-checkbox">Country of Origin<input class="refine_controls" id="country_origin_control" type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                            <li><label class="control control-checkbox">Vessel Name<input class="refine_controls" id="vessel_name_control" type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                        </ul>
+                    </div>
+                    <div id="refineFilter" class="filter-row" hidden>
+                        <h3>Refined By</h3>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default consignee" style="display: none">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Consignee
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <ul class="base-checkbox">
+                                            <li><label class="control control-checkbox">Consignee 1<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Consignee 2<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Consignee 3<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default shipper" style="display: none">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Shipper
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <ul class="base-checkbox">
+                                            <li><label class="control control-checkbox">Shipper 1<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Shipper 2<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Shipper 3<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default country_origin" style="display: none">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Country of origin
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <ul class="base-checkbox">
+                                            <li><label class="control control-checkbox">Country of origin 1<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Country of origin 2<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Country of origin 3<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default foreign_port" style="display: none">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Foreign Port
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                        <ul class="base-checkbox">
+                                            <li><label class="control control-checkbox">Foreign Port 1<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Foreign Port 2<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Foreign Port 3<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default vessel_name" style="display: none">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            Vessel Name
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                        <ul class="base-checkbox">
+                                            <li><label class="control control-checkbox">Vessel Name 1<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Vessel Name 2<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                            <li><label class="control control-checkbox">Vessel Name 3<input type="checkbox" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="moreFilters" class="filter-row" hidden>
+                        <h3>More</h3>
+                        <ul class="base-checkbox">
+                            <li><label class="control control-checkbox">Exclude Blank Consignee<input type="checkbox" id="blank_cons_control" name=""><span class="control-indicator"></span></label></li>
+                            <li><label class="control control-checkbox">Exclude Master<input type="checkbox" id="exc_master_control" name=""><span class="control-indicator"></span></label></li>
+                            <li><label class="control control-checkbox">House Only<input type="checkbox" id="house_only_control" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                            <li><label class="control control-checkbox">Master Only<input type="checkbox" id="master_only_control" name=""><span class="control-indicator"></span><span class="item-count">120</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="section-content">
+                <div class="section-inner">
+
+                    <div class="card-base charts">
+                        <div class="card-headbar">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="section-stats">
+                                        <a href="#" class="active chartTab" data-tab='1'>
+                                            <h3>Total Shipments</h3>
+                                            <div class="stat-count">300</div>
+                                        </a>
+
+                                        <a href="#" class='chartTab' data-tab='2'>
+                                            <h3>Gross Weight(Lb)</h3>
+                                            <div class="stat-count">123</div>
+                                        </a>
+
+                                        <a href="#" class='chartTab' data-tab='3'>
+                                            <h3>Shipment Quantity</h3>
+                                            <div class="stat-count">543</div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="calendar pull-right">
+                                        <div class="pre-selection">
+                                            <a href="#" class='rangeTab' data-range = '1'>1W</a>
+                                            <a href="#" class='rangeTab' data-range = '2'>2W</a>
+                                            <a href="#" class='rangeTab' data-range = '3'>1M</a>
+                                            <a href="#" class='active rangeTab' data-range = '4'>3M</a>
+                                            <a href="#" class='rangeTab' data-range = '5'>1Y</a>
+                                            <a href="#" class='rangeTab' data-range = '6'>ALL</a>
+                                        </div>
+                                        <div class="dropdown date-picker">
+                                            <input type="text" name="daterange" value="01/01/2017 - 01/31/2017" />
+                                            <span class="caret"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-main">
+                            <div class="graph-container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                       <canvas id="lineChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-xs-9 col-sm-9 col-md-9">
+                                    <div class="graph-label">
+                                        <legend>
+                                            <label class="blue-circle"></label>Export Data
+                                            <label class="green-circle"></label>Import Data
+                                        </legend>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <i class="options-button with-border pull-right">
+                                        <span class="other-options-icon"></span>
+                                        <span class="fa fa-caret-up"></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph-details">
+                            <div class="card-headbar">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Total Shipment by 3 month of <span>"Apple"</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-main">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <th></th>
+                                        <th>Month</th>
+                                        <th>Shipments</th>
+                                        <th>% Shipments</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>April 2017</td>
+                                            <td>238,024</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>March 2017</td>
+                                            <td>238,024</td>
+                                            <td>50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>February 2017</td>
+                                            <td>238,024</td>
+                                            <td>50%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-base results-container">
+                        <div class="card-headbar">
+                            <div class="section-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="option-fields">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle template-toggle" type="button">
+                                                    Default View
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <div id="template-view-container" class="dropdown-menu template-view-container" hidden>
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="col-md-3 clear-collapse">
+                                                                    <div class="section-panel nav-panel-section">
+                                                                        <h3>Choose Templates</h3>
+                                                                        <ul class="nav nav-tabs template-tab-list" role="tablist">
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="col-md-4 full-width middle-col">
+                                                                    <div class="template-container template-tab-container">
+                                                                        <!-- Tab panes -->
+                                                                        <div class="tab-content">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="col-md-5 hide animated fadeIn fields-col">
+                                                                    <div class="available-fields-container">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="relative-pos">
+                                                                    <button class="btn-link new_template">New</button>
+                                                                    <input type="text" class="new_template_textbox" hidden placeholder="Enter Name" />
+                                                                    <button class="btn btn-link secondary cancel-new"><span class="delete-icon"></span></button>
+                                                                </td>
+                                                                <td class="vertical-middle full-width middle-col"><button class="btn-link secondary edit">Edit</button><button class="btn-link secondary delete disabled hide">Delete</button></td>
+                                                                <td class="vertical-middle hide fields-col"><button class="btn-link apply disabled">Apply</button><button class="btn-link secondary cancel">Cancel</button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    <div class="row clear-collapse" style="display: none;">
+                                                        <div class="col-md-3 right-border-combine collapse-right pixel-adjust-right">
+                                                            <div class="section-panel">
+                                                                <h3>Choose Templates</h3>
+                                                                <ul class="nav nav-tabs" role="tablist">
+                                                                    <li role="presentation" class="active"><a href="#default" aria-controls="default" role="tab" data-toggle="tab">Default View</a></li>
+                                                                    <li role="presentation"><a href="#temp1" aria-controls="temp1" role="tab" data-toggle="tab">Template 1</a></li>
+                                                                    <li role="presentation"><a href="#temp2" aria-controls="temp2" role="tab" data-toggle="tab">Template 2</a></li>
+                                                                    <li role="presentation"><a href="#customtemp1" aria-controls="temp2" role="tab" data-toggle="tab">Created template 1</a><button class="fa fa-trash pull-right"></button></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 left-border-combine right-border-combine">
+                                                            <div class="template-container">
+                                                                <!-- Tab panes -->
+                                                                <div class="tab-content">
+                                                                    <div role="tabpanel" class="tab-pane active" id="default">
+                                                                        <h3>Default Template</h3>
+                                                                        <ul class="tag-lists">
+                                                                            <li>Product Descrption<span class="pull-right"></span></li>
+                                                                            <li>Consignee<span class="pull-right"></span></li>
+                                                                            <li>Shipper<span class="pull-right"></span></li>
+                                                                            <li>Arrival Date<span class="pull-right"></span></li>
+                                                                            <li>Gross Weight(Lb)<span class="pull-right"></span></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5 left-border-combine pixel-adjust-left">
+                                                            <div class="available-fields-container">
+                                                                <h3>Click or Drag to Select</h3>
+                                                                <span>US Port</span>
+                                                                <span>Container Number</span>
+                                                                <span>Master B/L</span>
+                                                                <span>Place of Receipt</span>
+                                                                <span>Vessel Name</span>
+                                                                <span>Quantity</span>
+                                                                <span>Ship Registered In</span>
+                                                                <span>Notify Party</span>
+                                                                <span>Notify Address</span>
+                                                                <span>Quantity Unit</span>
+                                                                <span>In-Bond Entry Type</span>
+                                                                <span>Country of Origin</span>
+                                                                <span>Marks And Numbers</span>
+                                                                <span>Measurement</span>
+                                                                <span>Carrier Code / Name</span>
+                                                                <span>Arrival Date</span>
+                                                                <span>Consignee Address</span>
+                                                                <span>Measurement Unit</span>
+                                                                <span>Carrier City</span>
+                                                                <span>Shipper Address</span>
+                                                                <span>Distribution Port</span>
+                                                                <span>Carrier State</span>
+                                                                <span>Zip Code</span>
+                                                                <span>Carrier Address</span>
+                                                                <span>Bill Of Lading</span>
+                                                                <span>Foreign Port</span>
+                                                                <span>No. of Containers</span>
+                                                                <span>House vs Master</span>
+                                                                <span>Carrier Zip</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="pull-right">
+                                            <button class="btn btn-default btn-primary">Export Results</button>
+                                            <div class="control-icon">
+                                                <i class="share-icon"></i>
+                                                <i class="card-view-icon"></i>
+                                                <i class="full-window-icon"></i>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-main table-view">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover results-table">
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-view">
+                            <div class="row" id="card">
+
+                            </div>
+                        </div>
+                        <!--<div class="card-footer">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-12 pull-right">Paging Here</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="card-footer">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-12 pull-right">-->
+                                    <!--<nav aria-label="Page navigation">-->
+                                        <!--<ul class="pagination">-->
+                                            <!--<li class="page-prev">-->
+                                              <!--<a href="#" aria-label="Previous">-->
+                                                <!--<span aria-hidden="true">&laquo;</span>-->
+                                              <!--</a>-->
+                                            <!--</li>-->
+                                            <!--<li class="page active" data-page="1"><a href="#">1</a></li>-->
+                                            <!--<li class="page" data-page="2"><a href="#">2</a></li>-->
+                                            <!--<li class="page" data-page="3"><a href="#">3</a></li>-->
+                                            <!--<li class="page" data-page="4"><a href="#">4</a></li>-->
+                                            <!--<li class="page" data-page="5"><a href="#">5</a></li>-->
+                                            <!--<li class="page-next">-->
+                                              <!--<a href="#" aria-label="Next">-->
+                                                <!--<span aria-hidden="true">&raquo;</span>-->
+                                              <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</nav>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="/public/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+// ==========================================================================
+// Section - Template options
+// ==========================================================================
+.option-fields{
+  .dropdown{
+    &.open{
+
+      button.btn-default{
+        &:before{
+          @extend .dropdown-border-hide;
+        }
+      }
+
+      .available-fields-container{
+        button.btn-default {
+          &:before {
+            display: none;
+          }
+
+          &:hover{
+            padding-left: 8px;
+          }
+        }
+      }
+
+    }
+
+    .dropdown-menu{
+      .table {
+        > tbody{
+          > tr:hover {
+            background: transparent;
+            box-shadow: none;
+          }
+
+          > td{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    button{
+      &.btn-default:hover,
+      &.btn-default:focus{
+        padding-right: 8px;
+      }
+    }
+
+    button.template-toggle{
+      min-width: 120px;
+      &:hover{
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+.template-view-container{
+  position: absolute;
+  width: 800px;
+  z-index:2;
+  -webkit-border-top-right-radius:$border-radius-base;
+  -moz-border-top-right-radius: $border-radius-base;
+  -ms-border-top-right-radius:$border-radius-base;
+
+  .section-panel{
+    h3{
+      padding: 0;
+      margin-bottom: 12px;
+    }
+    a{
+
+      &.btn-link{
+        padding-bottom: 0;
+        &:hover,
+        &:focus{
+          padding: 8px 15px;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+
+    ul{
+      li{
+        padding-right: 0;
+        left: 1px;
+        &.customize{
+          padding-top: 20px;
+        }
+        a{
+          padding-right: 0;
+          padding-left: 0;
+
+          i{
+            position: relative;
+            top:-3px;
+            display: $none-value;
+          }
+
+          &:hover > i{
+            display: block;
+            @include transition($base-transition);
+          }
+        }
+
+        &.active{
+
+          a{
+            display: block;
+            font-weight: $font-bold;
+            color: $brand-primary-color;
+          }
+
+          &.customize{
+            border-left: $none-value;
+            left: 0;
+            padding-top: 20px;
+          }
+        }
+
+      }
+    }
+
+    .nav-tabs{
+      > li{
+        button{
+          &.fa{
+            display: none;
+          }
+        }
+
+        &:hover > button{
+          &.fa{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .available-fields-container{
+    padding-right: 15px;
+    button{
+      float: left;
+      margin-bottom: 6px;
+      margin-right: 6px;
+      line-height: 70%;
+      text-align: center;
+      padding-right: 8px;
+
+      &.btn-default{
+        &:before{
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  h3{
+    text-align: left;
+  }
+}
+
+.template-container{
+  ul{
+    &.tag-lists{
+      li{
+        display: block;
+        margin-right: 0;
+        margin-top: 2px;
+        span{
+          display: $none-value;
+        }
+
+        &:hover span{
+          display: block;
+        }
+      }
+    }
+  }
+
+  .item-container{
+    font-size: 0;
+    .list-box{
+      font-size: 12px;
+      i{
+        &.fa-remove{
+          &.open{
+            display: block;
+          }
+        }
+      }
+
+      &.delete-item{
+        &:hover{
+          cursor: move;
+        }
+      }
+
+    }
+  }
+
+  .empty-box{
+    font-size: 12px;
+    border: 2px dotted rgba($brand-text-color, 0.15);
+    padding: 12px;
+    border-radius: 4px;
+    color: rgba($brand-text-color, 0.50);
+  }
+}
+
+.available-fields-container{
+  button{
+    color: rgba($brand-text-color, 0.50);
+    &.btn-default{
+      &:before{
+        background: transparent;
+      }
+    }
+
+    &:hover{
+      color:$brand-text-color;
+    }
+  }
+}
+
+.dropdown{
+
+  .template-view-container{
+    input{
+      &.new_template_textbox{
+        width: 100%;
+        min-width: 30%;
+        margin: 0;
+        padding-right: 8px;
+        margin-right: 4px;
+      }
+    }
+    button{
+      &.cancel-new{
+        display: none;
+        padding: 0;
+        position: $relative-position;
+        position: absolute;
+        top: 23px;
+        right: 41px;
+      }
+
+      &.visible{
+        display: inline-block;
+      }
+    }
+
+    .dcol{
+      height: 200px;
+      overflow: auto;
+    }
+
+    .delete-icon{
+      position: absolute;
+    }
+
+  }
+}
+

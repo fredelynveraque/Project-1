@@ -1,0 +1,31 @@
+// ==========================================================================
+// Base - Reset
+// ==========================================================================
+* {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+audio,
+video,
+canvas {
+  max-width: 100%;
+  user-select: none;
+  touch-callout: none;
+  pointer-events: none;
+}
+
+img {
+  height: auto;
+}

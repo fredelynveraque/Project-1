@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Prototype by Code Ninja</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.13/c3.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/animate.css/animate.min.css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.13/c3.min.js"></script>
+
+</head>
+
+<body>
+<div class="site-wrapper">
+    <section class="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="#" class="ig-logo"></a>
+            </div>
+            <div class="top-toolbar">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-7">
+                        <div id="searchBarDiv" class="search-bar">
+                            <input id="searchBar" type="text" name="" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-5">
+                        <div class="nav-section">
+                            <nav>
+                                <a href="#" class="search-icon"></a>
+                                <a href="#" class="help-icon"></a>
+                                <a href="#" class="chat-icon"></a>
+                                <div class="notification-container"><span class="notifications"></span><a data-trigger="focus" rel="popover" tabindex="0" href="#" class="notification-icon" role="button" data-container="body" data-toggle="popover" data-placement="bottom" title="Notifications" data-popover-content="#myNotifications"></a></div>
+                                <a data-trigger="focus" rel="popover" tabindex="0" href="#" role="button" data-container="body" data-toggle="popover" data-placement="bottom"  data-popover-content="#myAccount"><img src="../public/img/avatar-default.png" class="avatar-icon"></a>
+                            </nav>
+                            <div id="myNotifications" class="pop-over-default with-footer-button hide myNotifications">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            You exported <strong>test.xls</strong> completed after 48 seconds.
+                                            <span>2 mins ago</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            You exported <strong>test2.xls</strong> completed after 48 seconds.
+                                            <span>May 19, 2017</span>
+                                        </a>
+                                    </li>                                    <li>
+                                    <a href="#">
+                                        You exported <strong>test3.xls</strong> completed after 48 seconds.
+                                        <span>May 19, 2017</span>
+                                    </a>
+                                </li>
+                                </ul>
+                                <a href="#" class="btn btn-link">View All</a>
+                            </div>
+                            <div id="myAccount" class="pop-over-default hide myAccount">
+                                <ul>
+                                    <li>
+                                        <a href="#">Account Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Email Alerts<span class="item-count red-bg">4</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="body">
+        Profile
+    </div>
+
+</div>
+<script type="text/javascript" src="../public/assets/js/script.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $('[rel="popover"]').popover({
+            container: 'body',
+            html: true,
+            content: function () {
+                var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+                return clone;
+            }
+        }).click(function(e) {
+            e.preventDefault();
+        });
+        $('#countrydropdown>li>a').click(function() {
+            $('#dropdownMenu1').html($(this).html());
+        })
+
+        $('#importexportdata>li>a').click(function() {
+            $('#dropdownMenu2').html($(this).html());
+        })
+
+        $('#blank_cons_control').change(function () {
+            if($(this).prop('checked') == false) $('.blank_cons').hide();
+            else $('.blank_cons').show();
+        });
+        $('#exc_master_control').change(function () {
+            if($(this).prop('checked') == false) $('.exc_master').hide();
+            else $('.exc_master').show();
+        });
+        $('#house_only_control').change(function () {
+            if($(this).prop('checked') == false) $('.house_only').hide();
+            else $('.house_only').show();
+        });
+        $('#master_only_control').change(function () {
+            if($(this).prop('checked') == false) $('.master_only').hide();
+            else $('.master_only').show();
+        });
+        $('#consignee_control').change(function () {
+            if($(this).prop('checked') == false) $('.consignee').hide();
+            else $('.consignee').show();
+        });
+        $('#shipper_control').change(function () {
+            if($(this).prop('checked') == false) $('.shipper').hide();
+            else $('.shipper').show();
+        });
+        $('#country_origin_control').change(function () {
+            if($(this).prop('checked') == false) $('.country_origin').hide();
+            else $('.country_origin').show();
+        });
+        $('#vessel_name_control').change(function () {
+            if($(this).prop('checked') == false) $('.vessel_name').hide();
+            else $('.vessel_name').show();
+        });
+        $('#foreign_port_control').change(function () {
+            if($(this).prop('checked') == false) $('.foreign_port').hide();
+            else $('.foreign_port').show();
+        });
+
+        $('.refine_controls').change(function() {
+            if($('.refine_controls:checked').length == 0) $('#refineFilter').hide();
+            else if($('.refine_controls:checked').length == 1) $('#refineFilter').show();
+        });
+
+        $('#blank_cons_close').click(function() {
+            $('#blank_cons_control').prop('checked', false).change();
+        });
+
+        $('#exc_master_close').click(function() {
+            $('#exc_master_control').prop('checked', false).change();
+        });
+
+        $('#house_only_close').click(function() {
+            $('#house_only_control').prop('checked', false).change();
+        });
+
+        $('#master_only_close').click(function() {
+            $('#master_only_control').prop('checked', false).change();
+        });
+
+        $('#consignee_close').click(function() {
+            $('#consignee_control').prop('checked', false).change();
+        });
+
+        $('#shipper_close').click(function() {
+            $('#shipper_control').prop('checked', false).change();
+        });
+
+        $('#vessel_name_close').click(function() {
+            $('#vessel_name_control').prop('checked', false).change();
+        });
+
+        $('#country_origin_close').click(function() {
+            $('#country_origin_control').prop('checked', false).change();
+        });
+
+        $('#foreign_port_close').click(function() {
+            $('#foreign_port_control').prop('checked', false).change();
+        });
+
+        $('#clearfilter').click(function() {
+            $('#blank_cons_control').prop('checked', false).change();
+            $('#exc_master_control').prop('checked', false).change();
+            $('#house_only_control').prop('checked', false).change();
+            $('#master_only_control').prop('checked', false).change();
+            $('#consignee_control').prop('checked', false).change();
+            $('#shipper_control').prop('checked', false).change();
+            $('#country_origin_control').prop('checked', false).change();
+            $('#vessel_name_control').prop('checked', false).change();
+            $('#foreign_port_control').prop('checked', false).change();
+            $('#blank_cons_control').prop('checked', false).change();
+        });
+
+        if($('.refine_controls:checked').length == 0) $('#refineFilter').hide();
+        else if($('.refine_controls:checked').length == 1) $('#refineFilter').show();
+
+        $( "#searchBar" ).autocomplete({
+            source: [ "apple tv", "apple brand", "banana", "apple inc.", "apple usa", "apple china", "apple canada" ],
+            open: function(event, ui) {
+                $('.ui-front').css("top", parseInt($('.ui-front').css("top")) - 1 );
+            },
+            select: function() {
+                $('.loader-container').show();
+                setTimeout(function() {
+                    $('#showResultsFor').show();
+                    $('#showResultsFor').show();
+                    $('button#clearfilter').show();
+                    $('#moreFilters').show();
+                    $('button.btn.save').show();
+                    $('.loader-container').hide();
+                }, 1000);
+            }
+        }).data('ui-autocomplete')._renderMenu = function( ul, items ) {
+            var that = this;
+            $.each( items, function( index, item ) {
+                that._renderItemData( ul, item );
+                if (index === 0) {
+                    that._renderItemData( ul, {
+                        label: "In Shipment",
+                        value: "In Shipment",
+                    });
+
+                    that._renderItemData( ul, {
+                        label: "In Consignee",
+                        value: "In Consignee",
+                    });
+                }
+            });
+
+            $(ul).find("li:nth-child(2)").addClass('autosuggest-category');
+            $(ul).find("li:nth-child(3)").addClass('autosuggest-category');
+        };
+
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('input[name="daterange"]').daterangepicker({
+            "opens": "left"
+        });
+
+        $('.nav-tab').click(function (e) {
+            var active = $('.nav-tab.active').data('tab');
+
+            $('#' + active).hide();
+            $('.nav-tab.active').removeClass('active')
+
+            $(e.target).addClass('active');
+            var new_active =  $(e.target).data('tab');
+            $('#' + new_active).show();
+        });
+
+        $('.option-fields>div>button').click(function () {
+            $('.template-view-container').toggle();
+            $('.dropdown').toggleClass('open');
+        });
+
+
+        $('.nav-tabs li a').click(function (e) {
+            $('.custom-template-container').hide();
+            $('.template-container').show();
+            $('.toolbar-links a.save').hide();
+            $('.toolbar-links a.clear').hide();
+            $('.toolbar-links a.edit').show();
+        });
+
+        $('button.edit').click(function (e) {
+            $('.option-fields .open .template-view-container td.full-width').removeClass('full-width');
+            $('.option-fields .open .template-view-container td.hide').removeClass('hide');
+            $('.option-fields .open .template-view-container button.edit').addClass('hide');
+            $('.option-fields .open .template-view-container button.delete').removeClass('hide');
+            $('.option-fields .open .template-view-container .list-box').addClass('delete-item');
+
+            var el = document.getElementById('template-list');
+            var sortable = Sortable.create(el);
+
+            $('.list-box.delete-item > .check-icon').click(deleteField);
+
+            $('.available-fields-container').on('click', '.btn', addField);
+        });
+
+        $('button.delete').click(function() {
+            if ($('.template-tab.active').hasClass('default')) {
+                return;
+            }
+
+            $('.template-tab.active').remove();
+
+            $('.template-tab.default > a').click();
+        });
+
+        function deleteField(e) {
+            $(e.target.parentElement).remove();
+
+            $('.available-fields-container').append(`
+                <button class="btn btn-default btn-small">${e.target.parentElement.innerText}</button>
+            `);
+
+            $('.available-fields-container > .btn').last().click(addField);
+        };
+
+        function addField(e) {
+            $(e.target).remove();
+
+            $('#template-list').append(`
+                <div class="list-box delete-item"><i class="check-icon"></i><span>${e.target.innerText}</span></div>
+            `);
+
+            $('.list-box.delete-item > .check-icon').last().click(deleteField);
+        };
+
+        $('button.cancel').click(function (e) {
+            $('.option-fields .open .template-view-container td.full-width').removeClass('full-width');
+        });
+    });
+
+</script>
+<script>
+    var mockData = [
+        { label: '2014', exports: 121, imports: 121 },
+        { label: '2015', exports: 91, imports: 21 },
+        { label: '2016', exports: 101, imports: 41 },
+        { label: '2017', exports: 111, imports: 121 },
+        { label: '2018', exports: 151, imports: 141 },
+    ];
+    var newData = [
+        { label: '2016', exports: 221, imports: 221 },
+        { label: '2017', exports: 11, imports: 31 },
+        { label: '2018', exports: 201, imports: 51 },
+        { label: '2019', exports: 211, imports: 221 },
+        { label: '2020', exports: 251, imports: 241 },
+    ];
+    function getMock(days) {
+        var mockData;
+        if (days < 8) {
+            mockData = [
+                { label: 'Jan 1', exports: 40, imports: 12 },
+                { label: 'Jan 2', exports: 23, imports: 2 },
+                { label: 'Jan 3', exports: 15, imports: 13 },
+                { label: 'Jan 4', exports: 26, imports: 6 },
+                { label: 'Jan 5', exports: 43, imports: 12 },
+                { label: 'Jan 6', exports: 32, imports: 16 },
+                { label: 'Jan 7', exports: 46, imports: 9 },
+            ];
+        } else if (days < 15) {
+            mockData = [
+                { label: 'Jan 1', exports: 50, imports: 12 },
+                { label: 'Jan 2', exports: 40, imports: 2 },
+                { label: 'Jan 3', exports: 24, imports: 4 },
+                { label: 'Jan 4', exports: 64, imports: 12 },
+                { label: 'Jan 5', exports: 35, imports: 11 },
+                { label: 'Jan 6', exports: 34, imports: 10 },
+                { label: 'Jan 7', exports: 75, imports: 10 },
+                { label: 'Jan 8', exports: 71, imports: 12 },
+                { label: 'Jan 9', exports: 45, imports: 17 },
+                { label: 'Jan 10', exports: 16, imports: 15 },
+                { label: 'Jan 11', exports: 57, imports: 14 },
+                { label: 'Jan 12', exports: 85, imports: 9 },
+                { label: 'Jan 13', exports: 45, imports: 9 },
+                { label: 'Jan 14', exports: 54, imports: 12 },
+            ];
+        } else if (days < 31) {
+            // scale = 'days';
+            mockData = [
+                { label: 'Jan 1', exports: 12, imports: 12 },
+                { label: 'Jan 2', exports: 9, imports: 2 },
+                { label: 'Jan 3', exports: 10, imports: 4 },
+                { label: 'Jan 4', exports: 11, imports: 12 },
+                { label: 'Jan 5', exports: 13, imports: 11 },
+                { label: 'Jan 6', exports: 14, imports: 10 },
+                { label: 'Jan 7', exports: 13, imports: 10 },
+                { label: 'Jan 8', exports: 7, imports: 12 },
+                { label: 'Jan 9', exports: 12, imports: 17 },
+                { label: 'Jan 10', exports: 15, imports: 15 },
+                { label: 'Jan 11', exports: 16, imports: 14 },
+                { label: 'Jan 12', exports: 18, imports: 9 },
+                { label: 'Jan 13', exports: 18, imports: 9 },
+                { label: 'Jan 14', exports: 15, imports: 1 },
+                { label: 'Jan 15', exports: 14, imports: 2 },
+                { label: 'Jan 16', exports: 17, imports: 3 },
+                { label: 'Jan 17', exports: 13, imports: 15 },
+                { label: 'Jan 18', exports: 15, imports: 18 },
+                { label: 'Jan 19', exports: 18, imports: 3 },
+                { label: 'Jan 20', exports: 19, imports: 7 },
+                { label: 'Jan 21', exports: 11, imports: 5 },
+                { label: 'Jan 22', exports: 13, imports: 1 },
+                { label: 'Jan 23', exports: 12, imports: 3 },
+                { label: 'Jan 24', exports: 9, imports: 14 },
+                { label: 'Jan 25', exports: 10, imports: 16 },
+                { label: 'Jan 26', exports: 15, imports: 11 },
+                { label: 'Jan 27', exports: 18, imports: 10 },
+                { label: 'Jan 28', exports: 13, imports: 5 },
+                { label: 'Jan 29', exports: 12, imports: 10 },
+                { label: 'Jan 30', exports: 19, imports: 6 },
+                { label: 'Jan 31', exports: 20, imports: 0 },
+            ];
+        } else if (days < 183) {
+            // scale = 'weeks';
+            mockData = [
+                { label: 'Jan 1-7', exports: 42, imports: 52 },
+                { label: 'Jan 8-14', exports: 65, imports: 36 },
+                { label: 'Jan 15-21', exports: 84, imports: 19 },
+                { label: 'Jan 22-28', exports: 100, imports: 24 },
+                { label: 'Jan 29 - Feb 4', exports: 42, imports: 52 },
+                { label: 'Feb 5-11', exports: 65, imports: 36 },
+                { label: 'Feb 12-18', exports: 84, imports: 19 },
+                { label: 'Feb 19-25', exports: 100, imports: 24 },
+                { label: 'Feb 26 - Mar 4', exports: 42, imports: 52 },
+                { label: 'Mar 5-11', exports: 65, imports: 36 },
+                { label: 'Mar 12-18', exports: 84, imports: 19 },
+                { label: 'Mar 19-25', exports: 100, imports: 24 },
+            ];
+        } else if (days < 1460) {
+            // scale = 'months';
+            mockData = [
+                { label: 'January', exports: 121, imports: 121 },
+                { label: 'February', exports: 91, imports: 21 },
+                { label: 'March', exports: 101, imports: 41 },
+                { label: 'April', exports: 111, imports: 121 },
+                { label: 'May', exports: 131, imports: 111 },
+                { label: 'June', exports: 14, imports: 10 },
+                { label: 'July', exports: 13, imports: 10 },
+                { label: 'August', exports: 7, imports: 12 },
+                { label: 'September', exports: 12, imports: 17 },
+                { label: 'October', exports: 15, imports: 15 },
+                { label: 'November', exports: 16, imports: 14 },
+                { label: 'December', exports: 18, imports: 9 },
+            ];
+        } else {
+            // scale = 'years';
+            mockData = [
+                { label: '2014', exports: 121, imports: 121 },
+                { label: '2015', exports: 91, imports: 21 },
+                { label: '2016', exports: 101, imports: 41 },
+                { label: '2017', exports: 111, imports: 121 },
+            ];
+        }
+        return mockData;
+    }
+    var chart = lineChart(mockData, '#lineChart');
+    var newData = getMock(30);
+    console.log(newData);
+
+    updateData(chart, newData);
+    function updateData(chart, data) {
+        chart.load({
+            data
+        });
+    }
+    function lineChart(data, selector) {
+        var chart = c3.generate({
+            bindto: selector,
+            data: {
+                json: data,
+                keys: {
+                    x: 'label',
+                    value: ['exports', 'imports'],
+                }
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                },
+                y: {
+                    min: 0,
+                    padding: {
+                        bottom: 0
+                    }
+                }
+            },
+
+            grid: {
+                y: {
+                    show: true
+                }
+            }
+        });
+        return chart;
+    }
+</script>
+</body>
+
+</html>

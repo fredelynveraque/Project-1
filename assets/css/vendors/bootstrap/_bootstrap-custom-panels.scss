@@ -1,0 +1,73 @@
+@import "bootstrap/panels";
+
+.panel-group{
+  margin-bottom: 0;
+  .panel{
+    + .panel {
+      margin-top: 0;
+    }
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    .panel-heading{
+      padding: 0;
+      h4{
+        border-bottom:1px solid rgba($brand-text-color, 0.15);
+        padding: 8px 0;
+        position: relative;
+        a{
+          color:$brand-text-color;
+          font-weight: bold;
+          display: block;
+            &:after{
+              content: "\2212";
+              color: rgba($brand-text-color, 0.50);
+              font-weight: bold;
+              float: $pull-right;
+            }
+
+          &.collapsed{
+            &:after{
+              content: '\002B';
+            }
+          }
+        }
+      }
+      + .panel-collapse > .panel-body,
+      + .panel-collapse > .list-group {
+        border-top: none;
+        padding: 0;
+      }
+
+    }
+
+    .panel-body{
+      ul{
+        margin-left: 20px;
+        margin-top: 12px;
+        li{
+          border-bottom: none;
+          label{
+            position: relative;
+            left: -20px;
+            span{
+              &.item-count{
+                right: -20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .panel-default {
+    >{
+      .panel-heading{
+        background-color: transparent;
+        border:none;
+      }
+    }
+  }
+
+}

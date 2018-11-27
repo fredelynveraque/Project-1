@@ -1,0 +1,12 @@
+@import "bootstrap/grid";
+
+.row{
+  &.collapse{
+    padding-top: 0;
+  }
+}
+
+.container{
+  @include rem(padding-left, 15px);
+  @include rem(padding-right, 15px);
+}

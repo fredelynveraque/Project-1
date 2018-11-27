@@ -1,0 +1,71 @@
+// ==========================================================================
+// Section - Toolbar
+// ==========================================================================
+
+.section-toolbar{
+  .option-fields{
+    position: relative;
+
+    .control-indicator{
+      top:-3px;
+    }
+
+    .dropdown{
+      ul{
+        &.dropdown-menu{
+          border-top:1px solid rgba($brand-primary-color, 0.60);
+          top: 27px;
+          width: 100%;
+          padding-bottom: 0;
+        }
+      }
+
+      .row{
+
+        h4{
+          font-weight: $font-bold;
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+
+  .control-icon{
+    display: inline-block;
+    i{
+      margin-left: 16px;
+      position: relative;
+      top:4px;
+    }
+  }
+
+
+  .row{
+    .col-xs-12{
+      @media #{$small-only} {
+        margin: auto 0;
+        text-align: center;
+      }
+
+      .option-fields{
+        @media #{$small-only} {
+            display: inline-block;
+            width: $full-width;
+           margin-bottom: 15px;
+        }
+
+        button{
+          @media #{$small-only} {
+            width: $full-width;
+          }
+        }
+      }
+      .pull-right{
+        @media #{$small-only} {
+          float: $none-value;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

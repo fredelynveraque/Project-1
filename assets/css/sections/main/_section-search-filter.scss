@@ -1,0 +1,144 @@
+// ==========================================================================
+// Section - Main - Search Filter
+// ==========================================================================
+
+.section-nav-filter{
+
+  @media #{$custom-2} {
+    display: $none-value;
+  }
+  float:left;
+  font-size: 12px;
+  width: 16.8%;
+
+  .section-filter {
+
+    position: relative;
+
+    .filter-row {
+      padding-bottom: 50px;
+      h4{
+        color: rgba($brand-text-color, 0.70);
+      }
+
+      h3{
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+
+      &.refined-filter{
+        li{
+          font-weight: $font-bold;
+          position: relative;
+          cursor: pointer;
+
+          span {
+
+            &.refined-toggle-default::after{
+
+              position: absolute;
+              font-size: 15px;
+              height: 0;
+              top: 5px;
+              right: 0;
+              content: "+";
+              color: rgba($brand-text-color, 0.50);
+            }
+
+          }
+
+          &.item-open{
+            border-bottom: 0;
+            span{
+              &.refined-toggle-default::after{
+                content: "-";
+                font-size: 30px;
+                top: -6px;
+              }
+            }
+
+            ul{
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+
+      li{
+        border-bottom:1px solid rgba($brand-text-color, 0.15);
+
+        label{
+
+          input[type="checkbox"]:checked ~ span{
+
+            &.item-count{
+              background: rgba($brand-primary-color, 0.15);
+              border: 1px solid rgba($brand-primary-color, 0.15);
+            }
+          }
+
+          span{
+
+            &.item-count{
+              @extend .absolute-zero;
+              right: 0;
+            }
+
+          }
+        }
+
+        &.item-open{
+          padding-bottom: 0;
+        }
+      }
+
+      &.tag-lists {
+
+        li{
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .main-filter{
+      button{
+        &.secondary{
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        &.save{
+          border-top:1px solid rgba($brand-text-color, 0.15);
+          width: $full-width;
+          text-align: $pull-left;
+          padding-top: 12px;
+        }
+      }
+
+      ul{
+        padding: 0;
+        padding-bottom: 4px;
+        li{
+          padding: 0;
+          border-bottom: 0;
+        }
+
+        &.tag-lists{
+          padding-bottom: 0;
+          li{
+            padding: 12px 10px;
+          }
+        }
+      }
+
+      .field{
+        &:nth-last-child(1){
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

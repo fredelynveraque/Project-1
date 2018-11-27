@@ -1,0 +1,136 @@
+@import "../../../../node_modules/bootstrap-daterangepicker/daterangepicker.scss";
+
+.daterangepicker{
+  font-family:$font-sans;
+  font-size: 12px;
+  @include border-radius(3px);
+  @include transition($base-transition);
+
+  .calendar-table{
+    font-size: 10px;
+
+    thead{
+      font-size: 12px;
+    }
+  }
+
+  &:before,
+  &:after{
+      display: none;
+    }
+
+  td{
+    &.active,
+    &.active:hover,
+    &.end-date.in-range{
+      background:$brand-primary-color;
+      &:hover{
+        background:$brand-primary-color;
+      }
+
+    }
+
+    &.off.end-date.in-range{
+      background: transparent;
+    }
+
+    &.in-range{
+      background: #E7F5FD;
+    }
+
+    &.available{
+      &:hover{
+        background-color:$brand-table-gray;
+        @include border-radius($default-radius);
+      }
+
+      .fa{
+        color: rgba($brand-text-color, 0.50);
+      }
+    }
+  }
+
+  &.ltr{
+    padding: 8px;
+
+    .ranges{
+      margin: 0;
+    }
+
+    .calendar{
+      &.left{
+        width: 50%;
+        margin-right: 25px;
+      }
+    }
+  }
+
+  th{
+    &.month{
+      font-weight: $font-bold;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: rgba($brand-text-color, 0.70);
+    }
+
+    &.available{
+      &:hover{
+        background-color:$brand-table-gray;
+        @include border-radius($default-radius);
+      }
+    }
+
+    .fa{
+      color: rgba($brand-text-color, 0.50);
+    }
+  }
+
+  input{
+    &.input-mini{
+      &.active{
+        color: #344050;
+        background-color: rgba(21, 162, 237, 0.05);
+        border-color: rgba(21, 162, 237, 0.6);
+        outline: none;
+        box-shadow: none;
+        @include transition($base-transition);
+      }
+
+      &.normal-input{
+        border: 1px solid #ccc;
+        background: transparent;
+      }
+
+      &:focus{
+        color: #344050;
+        background-color: rgba(21, 162, 237, 0.05);
+        border-color: rgba(21, 162, 237, 0.6);
+        outline: $none-value;
+        box-shadow: $none-value;
+      }
+    }
+
+    &:hover{
+      @include transition($base-transition);
+      @include box-shadow(0 0 4px 0 rgba($brand-text-color, 0.20));
+      cursor: pointer;
+    }
+  }
+
+  .daterangepicker_input{
+    float: left;
+    margin-right: 8px;
+  }
+}
+
+.date-picker{
+    input{
+      &:hover{
+        @include transition($base-transition);
+        @include box-shadow(0 0 4px 0 rgba($brand-text-color, 0.20));
+        cursor: pointer;
+      }
+    }
+}
+

@@ -1,0 +1,105 @@
+// --------------------------------------------------------------------------
+// Fonts
+// --------------------------------------------------------------------------
+$font-sans: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+$font-bold:  bold !default;
+$font-normal:normal !default;
+
+//  --------------------------------------------------------------------------
+// Colors
+//  --------------------------------------------------------------------------
+$brand-primary-color: #15A2ED;
+$brand-secondary-color: #B9DFF6;
+$brand-text-color: #344050;
+$brand-table-odd-color: #F5F8FC;
+$brand-table-hover-color: #E7F5FD;
+$button-hover-primary-color:#339CD8;
+$brand-white-color:#fff;
+$dropdown-open-arrow:#B9DFF6;
+$border-default-color-combine:#E7E9EA;
+$brand-green-color: #68D57B;
+$brand-red-color: #EE806A;
+$brand-purple-color: #E55FFF;
+$brand-table-gray:rgba(245, 248, 252, 0.8);
+
+// ==========================================================================
+// Variables
+// ==========================================================================
+$full-width:100%;
+$dropdown-padding:6px 8px;
+$pull-left:left;
+$pull-right:right;
+$border-radius-base:3px;
+$dropdown-fallback-border:rgba($brand-text-color, 0.15); // IE8 fallback
+$dropdown-border:rgba($brand-text-color, 0.15);
+$none-value:none;
+$visible-value:block;
+$font-icon-default-size:16px;
+$font-icon-default-color: rgba($brand-text-color, 0.50);
+$icon-svg-default-opacity:0.50;
+$icon-svg-primary-opacity:1;
+$hidden:$none-value;
+$visible:$visible-value;
+$border-default-pixel:1px;
+$border-default-solid:solid;
+$border-default-color:rgba($brand-text-color, 0.15);
+$border-default:$border-default-pixel $border-default-solid $border-default-color;
+$border-combine:$border-default-pixel $border-default-solid $border-default-color-combine;
+$popover-padding: 8px 12px;
+$table-padding: 15px;
+$absolute-position: absolute;
+$relative-position: relative;
+$zero-value:0;
+$pop-box-shadow:0 5px 10px rgba(0, 0, 0, 0.1);
+$base-transition:all 0.3s ease-in;
+$default-font-size:12px;
+$default-radius:3px;
+$table-font-size:11px;
+
+// ==========================================================================
+// Notifications
+// ==========================================================================
+$notification-font-size:9px;
+$notification-circle-size: 8px;
+
+//  --------------------------------------------------------------------------
+// Buttons
+//  --------------------------------------------------------------------------
+$default-button-radius:$default-radius;
+$default-button-padding:10.5px 12px;
+$default-button-padding-small: 5px 10px;
+$button-transition-animation:all 0.4s ease-in;
+$btn-default-bg:$brand-white-color;
+$btn-link-default-size:10px;
+
+//  --------------------------------------------------------------------------
+//  Dropdown
+//  --------------------------------------------------------------------------
+$dropdown-right-padding:30px;
+$dropdown-default-padding-left:8px;
+
+//  --------------------------------------------------------------------------
+// Mediaqueries
+//  --------------------------------------------------------------------------
+$screen: "only screen" !default;
+
+// Small Only - max-width 639px
+$small-only: "#{$screen} and (max-width: 39.938em)";
+
+// Medium Up - min-width 640px
+$medium-up: "#{$screen} and (min-width: 40em)";
+
+// Medium Only - min-width 640px and max-width 1024px
+$medium-only: "#{$screen} and (min-width: 40.063em) and (max-width: 64em)";
+
+// Large Up - min-width 1024px
+$large-up: "#{$screen} and (min-width: 64em)";
+
+// Custom 1 - max-width  1062px
+$custom-1: "#{$screen} and (max-width: 66.375em)";
+
+// Custom 2 - max-width  959px
+$custom-2: "#{$screen} and (max-width: 59.938em)";
+
+// Custom 3 - max-width  480px
+$custom-3: "#{$screen} and (max-width: 30.000em)";

@@ -1,0 +1,87 @@
+// ==========================================================================
+// Section - Charts
+// ==========================================================================
+.charts {
+
+  .card-headbar {
+
+    .row {
+      .col-md-6{
+        &:nth-child(1){
+          padding-right: 0;
+        }
+      }
+
+      .col-md-6{
+        &:nth-child(2){
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.graph-container{
+    canvas{
+      pointer-events: inherit;
+    }
+}
+
+.graph-details {
+  display: none;
+  &.visible{
+    display: block;
+  }
+  .card-headbar{
+    border-top:1px solid rgba($brand-text-color, 0.15);
+    background: rgba($brand-primary-color, 0.05);
+  }
+
+  h3{
+    color: rgba($brand-text-color, 0.5);
+    margin-bottom: 0;
+    text-align: center;
+
+    span{
+      color: $brand-text-color;
+      font-weight: bold;
+    }
+  }
+
+  @keyframes chart-detail-opening {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+
+  .card-main{
+    animation-name: chart-detail-opening;
+    animation-duration: 1s;
+  }
+}
+
+.charts{
+  .card-footer{
+    .fa-caret-up{
+      display: none;
+      line-height: 22px;
+
+      &.visible{
+        display: block;
+      }
+    }
+  }
+
+  .other-options-icon{
+    height: 23px;
+  }
+}
+
+
+
+
+
+

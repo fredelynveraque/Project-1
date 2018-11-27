@@ -1,0 +1,74 @@
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+h1, h2, h3, h5, h6 {
+  font-family: $font-sans;
+  line-height: normal;
+  text-transform:uppercase;
+  letter-spacing: 1px;
+  font-weight: $font-bold;
+
+  @include rem(margin-bottom, 16px);
+}
+
+h1{
+  text-transform: none;
+}
+
+h2 {
+  font-size: 12px;
+
+  // Medium Up
+  @media #{$medium-up} {
+    font-size: 44px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+
+  // Medium Up
+  @media #{$medium-up} {
+    font-size: 10px;
+  }
+}
+
+h4 {
+  font: {
+    size: 20px;
+    weight: 300;
+  };
+
+  // Medium Up
+  @media #{$medium-up} {
+    font-size: 12px;
+  }
+}
+
+h5 {
+  font: {
+    size: 16px;
+    weight: 300;
+  };
+}
+
+h6 {
+  font: {
+    size: 12px;
+    weight: 300;
+  };
+}
+
+p {
+  font: {
+    size: 16px;
+    weight: 300;
+  };
+  line-height: 1.750;
+
+  @include rem(margin-bottom, 24px);
+}
+
+// Heading Style
+// ==========================================================================

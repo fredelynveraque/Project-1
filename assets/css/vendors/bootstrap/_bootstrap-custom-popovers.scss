@@ -1,0 +1,116 @@
+@import "bootstrap/popovers";
+
+.popover{
+  font-family: $font-sans;
+  font-size: 12px;
+  @include border-radius(3px);
+  border:$none-value;
+  border-top: 1px solid rgba($brand-text-color, 0.05);
+  min-width: 200px;
+  left:30px;
+
+   &.top > .arrow,
+   &.bottom > .arrow,
+   &.left > .arrow,
+   &.bottom > .arrow{
+     border-bottom-color:rgba($brand-text-color, 0.15);
+   }
+
+  .popover-title{
+    font-weight: $font-bold;
+    background-color: $brand-white-color;
+    border-bottom:$border-default;
+    padding: $popover-padding;
+    text-align: left;
+  }
+
+  .popover-content{
+      .myNotifications{
+        li{
+          &:nth-of-type(even){
+            background-color: $brand-table-odd-color;
+          }
+        }
+      }
+
+    .myAccount{
+      ul{
+        padding: 8px 0;
+        li{
+          padding: 6px 20px;
+        }
+      }
+    }
+
+    padding: 0;
+    ul{
+      li{
+        a{
+          position: relative;
+          display: block;
+
+          span{
+            color: rgba($brand-text-color, 0.50);
+            font-size: 10px;
+            display: block;
+
+            &.item-count{
+              display: inline-block;
+              @extend .absolute-zero;
+              right: 0;
+
+              &.green-bg,
+              &.red-bg{
+                color: #fff;
+              }
+            }
+          }
+          color: $brand-text-color;
+        }
+      }
+    }
+
+    .pop-over-default{
+
+      li{
+        padding: $popover-padding;
+        text-align: left;
+
+        &:hover{
+          background-color: #E7F5FD;
+        }
+
+        a{
+          .green-bg,
+          .red-bg,
+          .blue-bg{
+            color: $brand-white-color;
+          }
+        }
+      }
+
+      &.with-footer-button{
+        padding: 0;
+        li{
+          padding: $popover-padding;
+          a{
+            padding:0;
+            text-align: left;
+            border-top:0;
+          }
+        }
+
+        a{
+          text-align: center;
+          padding: 8px 12px;
+          display: block;
+          border-top:$border-default;
+        }
+      }
+
+      &.templateView{
+        width:600px;
+      }
+    }
+  }
+}

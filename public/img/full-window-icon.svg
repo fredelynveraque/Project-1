@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M7.82842712,18.1715729 L9.65685425,20 L4,20 L4,14.3431458 L5.82842712,16.1715729 L8,14 L10,16 L7.82842712,18.1715729 Z M19.9962656,17.9993776 L19.9962656,14.3431458 L18.1687188,16.1718308 L15.9975104,14.0006224 L13.9987552,15.9993776 L16.1705858,18.1712082 L14.3429322,20 L19.9962656,20 L19.9962656,18.0018672 L19.9975104,18.0006224 L19.9962656,17.9993776 Z M16.1715729,5.82842712 L14.3431458,4 L20,4 L20,9.65685425 L18.1715729,7.82842712 L16,10 L14,8 L16.1715729,5.82842712 Z M7.82842712,5.82842712 L9.65685425,4 L4,4 L4,9.65685425 L5.82842712,7.82842712 L8,10 L10,8 L7.82842712,5.82842712 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-/-fullscreen" transform="translate(-4.000000, -4.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="icon" fill="#344050" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

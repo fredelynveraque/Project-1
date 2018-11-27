@@ -1,0 +1,124 @@
+// ==========================================================================
+// Section - Stats
+// ==========================================================================
+
+.section-stats{
+  @media #{$custom-2} {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  @media #{$small-only} {
+    padding-bottom: 15px;
+  }
+  h3{
+    font-weight: $font-bold;
+    margin-bottom: 8px;
+    @media #{$custom-3} {
+      font-size: 14px;
+    }
+  }
+
+    a{
+      font-size: 18px;
+      color: rgba($brand-text-color, 0.70);
+      border-right: 1px solid rgba($brand-text-color, 0.15);
+      display: inline-block;
+      padding: 0 15px;
+
+      @media #{$custom-3} {
+        padding: 0 11px;
+      }
+
+      &.active{
+        color: $brand-primary-color;
+      }
+
+      &:nth-child(1){
+        padding-left: 0;
+      }
+
+      &:nth-last-child(1){
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .stat-count{
+        font-weight: bold;
+        @media #{$small-only} {
+          font-size: 25px;
+        }
+      }
+    }
+
+}
+
+.calendar{
+  .pre-selection,
+  .date-picker{
+    display: inline-block;
+  }
+  .pre-selection{
+    a{
+      color: $brand-text-color;
+      padding-bottom: 4px;
+      display: inline-block;
+      margin-left: 20px;
+      &:nth-child(1){
+        @media #{$small-only} {
+          margin-left: 0;
+        }
+      }
+
+
+      &.active{
+        color: $brand-primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  i{
+    &.with-border{
+      position: relative;
+      top: 4px;
+    }
+  }
+  @media #{$custom-2} {
+    text-align: center;
+    float: $none-value;
+  }
+
+  @media #{$small-only} {
+    margin-top: 20px;
+  }
+
+
+}
+
+.card-footer{
+  font-size: 11px;
+  position: relative;
+
+    label{
+      margin-left: 16px;
+      margin-right: 4px;
+
+        &:nth-child(1){
+          margin-left: 0;
+        }
+    }
+}
+
+.card-headbar{
+  .row{
+    .col-md-5{
+      padding-right: 0;
+
+    }
+
+    .col-md-7{
+      padding-left: 0;
+    }
+  }
+}
+

@@ -1,0 +1,30 @@
+@import "bootstrap/navs";
+
+.nav-tabs {
+  border-bottom:0;
+  margin-bottom: 6px;
+  > li{
+    width: 100%;
+    padding: 0;
+    padding-right: 15px;
+    > a {
+      border-radius: 0;
+      padding: 8px 15px;
+      border: $none-value;
+      &:hover{
+        border-color:transparent;
+        background-color: transparent;
+      }
+    }
+
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border:0;
+        cursor: default;
+      }
+    }
+  }
+}

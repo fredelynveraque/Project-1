@@ -1,0 +1,740 @@
+// ==========================================================================
+// Base
+// ==========================================================================
+
+html {
+  font-family: $font-sans;
+  line-height: 1.5;
+  font-size: 12px;
+
+  // Prevent font scaling on landscape mode
+  -webkit-text-size-adjust: 100%;
+
+  // Media Up
+  @media #{$medium-up} {
+    font-size: 16px;
+  }
+}
+
+html, body {
+  background: #f0f4f8;
+  color: $brand-text-color;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
+
+// ==========================================================================
+//  Forms
+// ==========================================================================
+
+// Base Form Style
+input,select{
+   @include border-radius(3px);
+   background: #fff;
+   border: 1px solid rgba($brand-text-color, 0.20);
+   padding:6px 8px;
+  @include rem(font-size, 12px);
+   color:$brand-text-color;
+   min-width: 200px;
+   width: inherit;
+   padding-right: 20px;
+
+  @media #{$small-only} {
+    @include rem(font-size, 16px);
+  }
+
+
+  &:focus,
+  &:active{
+    color: #344050;
+    background-color: rgba(21, 162, 237, 0.05);
+    border-color: rgba(21, 162, 237, 0.6);
+    outline: $none-value;
+    box-shadow: $none-value;
+   }
+
+  .with-icon-right{
+    @extend .with-icon;
+    padding-left: 12px;
+  }
+
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  width: inherit;
+  margin-right: 5px;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+ul{
+  &.base-checkbox{
+
+    li{
+      padding: 8px 0;
+      position: relative;
+
+      .control {
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        cursor: pointer;
+      }
+
+      .control-indicator {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 12px;
+        width: 12px;
+        background: transparent;
+        border: 1px solid rgba($brand-text-color, 0.20);
+        @include border-radius(2px);
+      }
+
+      input[type="checkbox"]:checked ~ .control-indicator {
+        background:$brand-primary-color;
+        border: none;
+      }
+
+      input[type="checkbox"]:checked ~ .control-indicator:after {
+        display: block;
+      }
+
+      .control-checkbox  {
+        .control-indicator {
+          &:after {
+            left: 4px;
+            top: 1px;
+            width: 2px;
+            height: 6px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            content: "";
+            position: absolute;
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.field{
+  padding-bottom: 10px;
+}
+
+// ==========================================================================
+//  Base Links
+// ==========================================================================
+a{
+  color:rgba($brand-text-color, 0.70) ;
+
+  &:hover{
+    color: $brand-primary-color;
+  }
+}
+
+// ==========================================================================
+//  Base Icons
+// ==========================================================================
+.base-icon{
+  width:16px;
+  height:16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  text-align:center;
+  @include opacity($icon-svg-default-opacity);
+
+  &:hover{
+    cursor: pointer;
+    @include opacity($icon-svg-primary-opacity);
+    @include transition($base-transition);
+  }
+}
+
+.small-icon{
+  width:13px;
+  height:13px;
+}
+
+i{
+  &.with-border{
+
+    width: 30px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    display: inline-block;
+    @include border-radius(3px);
+    border: 1px solid rgba($brand-text-color, 0.20);
+
+    &:hover{
+
+      @include transition($base-transition);
+      @include box-shadow(0 0 4px 0 rgba($brand-text-color, 0.20));
+      cursor: pointer;
+    }
+  }
+}
+
+.icon-delete{
+  display: none;
+  &:before,
+  &:after{
+    @include border-radius(1px);
+    background-color: rgba($brand-text-color, 0.50);
+    display: inline-block;
+    width: 9px;
+    height: 1px;
+    cursor: pointer;
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    @include transform(rotate(45deg));
+    left: -6px;
+  }
+
+  &::after {
+    @include transform(rotate(-45deg));
+    right: -3px;
+  }
+}
+
+
+// ==========================================================================
+//  Circle
+// ==========================================================================
+
+.circle{
+  @include circle(50%);
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+}
+
+
+// ==========================================================================
+//  Card Base
+// ==========================================================================
+
+.card-base{
+  background: #fff;
+  @include box-shadow(0 0 4px 0 rgba($brand-text-color, 0.20));
+  @include border-radius(4px);
+  display: block;
+  float: left;
+  width: 100%;
+  line-height: 70%;
+  font-size: 12px;
+  @include rem( margin-bottom, 30px);
+
+  @media #{$small-only} {
+    font-size: 20px;
+  }
+
+  .card-main{
+    table{
+      margin-bottom: 0;
+    }
+  }
+
+  .card-headbar,
+  .card-footer{
+    border-bottom:1px solid rgba($brand-text-color, 0.15);
+  }
+
+  .card-footer{
+    border-bottom:none;
+    border-top:1px solid rgba($brand-text-color, 0.15);
+  }
+
+}
+
+// ==========================================================================
+//  Tag List
+// ==========================================================================
+
+ul{
+
+  &.tag-lists {
+
+    list-style: none;
+    li {
+
+      background-color: rgba($brand-primary-color, 0.15);
+      @include border-radius(3px);
+      display: inline-block;
+      color: $brand-text-color;
+      padding: 12px 10px;
+      margin-top: 10px;
+      margin-right: 7px;
+      line-height: 70%;
+
+
+      &:nth-last-child(1){
+        margin-bottom: 0;
+      }
+
+      span {
+        @extend .delete-icon;
+      }
+    }
+
+    &.small-tag{
+      li{
+        padding: 7px 10px;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+//  Label - Legend
+// ==========================================================================
+.blue-circle{
+  @extend .circle;
+  background: $brand-primary-color;
+}
+
+.green-circle{
+  @extend .circle;
+  background: $brand-green-color;
+}
+
+legend{
+  font-size: 11px;
+  @media #{$small-only} {
+    font-size: 16px;
+  }
+}
+
+// ==========================================================================
+//  Graph Container
+// ==========================================================================
+
+.graph-container{
+    background: rgba($brand-primary-color, 0.05);
+    padding: 24px 0;
+    padding-bottom: 8px;
+}
+
+// ==========================================================================
+//  Notification
+// ==========================================================================
+.notification-container{
+  position: relative;
+  display: inline-block;
+  .notifications{
+    @extend .circle;
+    color: $brand-white-color;
+    display: inline-block;
+    font-size: $notification-font-size;
+    width: $notification-circle-size;
+    height: $notification-circle-size;
+    position: absolute;
+    font-weight:$font-bold;
+    background: #DB817A;
+    text-align: center;
+    right: -3px;
+    z-index: 1;
+    border: 2px solid rgba($brand-white-color, 0.80);
+  }
+}
+
+// ==========================================================================
+//  Common
+// ==========================================================================
+
+.hide{
+  display: $none-value;
+}
+
+.visible{
+  display: $visible;
+}
+
+.pixel-adjust-right{
+  position: $relative-position;
+  left:1px;
+}
+
+.pixel-adjust-left{
+  position: $relative-position;
+  left:-1px;
+}
+
+.row{
+  &.with-border-top{
+    border-top: $border-default;
+    margin-left: 0;
+    margin-right: 0;
+    .col-xs-1,
+    .col-sm-1,
+    .col-md-1,
+    .col-lg-1,
+    .col-xs-2,
+    .col-sm-2,
+    .col-md-2,
+    .col-lg-2,
+    .col-xs-3,
+    .col-sm-3,
+    .col-md-3,
+    .col-lg-3,
+    .col-xs-4,
+    .col-sm-4,
+    .col-md-4,
+    .col-lg-4,
+    .col-xs-5,
+    .col-sm-5,
+    .col-md-5,
+    .col-lg-5,
+    .col-xs-6,
+    .col-sm-6,
+    .col-md-6,
+    .col-lg-6,
+    .col-xs-7,
+    .col-sm-7,
+    .col-md-7,
+    .col-lg-7,
+    .col-xs-8,
+    .col-sm-8,
+    .col-md-8,
+    .col-lg-8,
+    .col-xs-9,
+    .col-sm-9,
+    .col-md-9,
+    .col-lg-9,
+    .col-xs-10,
+    .col-sm-10,
+    .col-md-10,
+    .col-lg-10,
+    .col-xs-11,
+    .col-sm-11,
+    .col-md-11,
+    .col-lg-11,
+    .col-xs-12,
+    .col-sm-12,
+    .col-md-12,
+    .col-lg-12{
+      padding-left: 0;
+      padding-right:0;
+    }
+  }
+}
+
+
+.left-border-combine{
+  border-left:$border-combine;
+
+}
+
+.right-border-combine{
+  border-right:$border-combine;
+
+}
+
+.top-border-combine{
+  border-top:$border-combine;
+}
+
+.bottom-border-combine{
+  border-bottom:$border-combine;
+}
+
+.item-count{
+    @include border-radius(10px);
+    padding: 1px 6px;
+    font-size: 10px;
+    border: 1px solid rgba($brand-text-color, 0.15);
+}
+
+.popup-box-container{
+  @include border-radius(3px);
+  border:$none-value;
+  border-top: 1px solid rgba($brand-text-color, 0.05);
+  @include box-shadow($pop-box-shadow);
+  background: $brand-white-color;
+}
+
+.fa-default{
+  display: inline-block;
+  font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} FontAwesome; // shortening font declaration
+  font-size: 15px; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa{
+  font-size: 14px;
+  color: rgba($brand-text-color, 0.70);
+
+  &:hover{
+    color: $brand-text-color;
+  }
+
+  &.small{
+    font-size: 10px;
+  }
+}
+
+.dropdown-arrow{
+  color: rgba($brand-text-color, 0.30);
+  position: absolute;
+  right: 8px;
+  top: 14px;
+}
+
+.ui-helper-hidden-accessible {
+  display:$none-value;
+}
+
+.delete-icon {
+  cursor: pointer;
+  position: relative;
+  left: 5px;
+  top: -3px;
+  display: inline-block;
+
+  &:hover {
+    &::before,
+    &::after {
+      background:$brand-text-color;
+    }
+
+  }
+
+  &::before,
+  &::after {
+    @include border-radius(1px);
+    background-color: rgba($brand-text-color, 0.50);
+    display: inline-block;
+    width: 9px;
+    height: 1px;
+    cursor: pointer;
+    content: "";
+    position: relative;
+
+  }
+
+  &::before {
+    @include transform(rotate(45deg));
+    left: 5px;
+  }
+
+  &::after {
+    @include transform(rotate(-45deg));
+    right: 4px;
+  }
+}
+
+.check-icon{
+  position: relative;
+  cursor: inherit;
+  &:before,
+  &:after{
+    border-radius: 1px;
+    background-color: rgba(52, 64, 80, 0.5);
+    display: inline-block;
+    width: 9px;
+    height: 1px;
+    content: "";
+    position: relative;
+    margin: 0;
+
+  }
+
+  &:before{
+    transform: rotate(45deg);
+    width: 5px;
+    top: 6px;
+    left: -3px;
+  }
+
+  &:after{
+    transform: rotate(-45deg);
+    right: 0;
+    top: -3px;
+  }
+
+  &.disabled{
+    @include opacity(0.2);
+    cursor: inherit;
+  }
+}
+
+.delete-item{
+  .check-icon{
+    cursor: pointer;
+    &:before{
+      left: -3px;
+      top: 4px;
+      width: inherit;
+    }
+
+    &:after{
+      right: 3px;
+      top: -4px;
+    }
+  }
+}
+
+.dropdown-border-hide{
+  background: $brand-white-color;
+  display: inline-block;
+  height: 3px;
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  top: 27px;
+  left: 0;
+}
+
+// ==========================================================================
+//  Buttons
+// ==========================================================================
+
+button{
+  &.fa,
+  &.fa:hover{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    padding: 0;
+    @include transition($base-transition);
+  }
+
+  &.fa:hover{
+    color: $brand-text-color;
+  }
+}
+
+// ==========================================================================
+//  Notification and Alerts
+// ==========================================================================
+
+.green-bg{
+  background: $brand-green-color;
+  color: $brand-white-color;
+}
+
+.red-bg{
+  background: $brand-red-color;
+  color: $brand-white-color;
+}
+
+.blue-bg{
+  background: $brand-primary-color;
+  color: $brand-white-color;
+}
+
+// ==========================================================================
+//  Date Picker
+// ==========================================================================
+
+.date-picker{
+  display: inline-block;
+  @media #{$small-only} {
+    width: $full-width;
+  }
+  .dropdown,input{
+    margin-left: 12px;
+    @media #{$custom-1} {
+      margin-top: 4px;
+      button{
+        @media #{$small-only} {
+          width: $full-width;
+        }
+      }
+    }
+    @media #{$small-only} {
+      margin-left: 0;
+    }
+  }
+}
+
+// ==========================================================================
+//  Auto Fill Textfield
+// ==========================================================================
+
+.ui-front {
+  position: fixed;
+  background: $brand-white-color;
+  border-top: $border-default;
+  z-index: 2;
+  box-shadow: $pop-box-shadow;
+  padding: $table-padding;
+  margin-top: -2px;
+  @include border-radius-bottom(3px);
+  padding:0;
+  z-index: 9999;
+
+    li{
+      &.ui-menu-item{
+        line-height: 70%;
+        font-size: 12px;
+        cursor: pointer;
+        padding:10px 15px;
+        &:hover{
+          background: $brand-table-hover-color;
+        }
+      }
+
+      .ui-menu-item-wrapper{
+        font-weight: $font-bold;
+      }
+
+      &.autosuggest-category.ui-menu-item{
+        padding: 10px 25px;
+
+        .ui-menu-item-wrapper{
+          font-weight: normal;
+        }
+      }
+
+    }
+}
+
+// ==========================================================================
+//  Pre-Loader
+// ==========================================================================
+
+.loader-container {
+  position: fixed;
+  padding-top: 13%;
+  background: #f0f4f8;
+  top: 41px;
+  left: 0;
+  width: 100%;
+  height:100%;
+  padding-left: 50%;
+  z-index: 99;
+
+  .loader {
+    border: 2px solid rgba($brand-text-color, 0.15);
+    border-top: 2px solid $brand-primary-color;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    @include animation(spin 1s linear infinite);
+  }
+
+  @keyframes spin {
+    0% { @include transform(rotate(0deg));}
+    100% { @include rotate(360deg);}
+  }
+}
+

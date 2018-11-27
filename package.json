@@ -1,0 +1,71 @@
+{
+  "name": "Prototype",
+  "version": "1.0.0",
+  "description": "Boilerplate for Rapid Design Prototyping",
+  "scripts": {
+    "serve": "node prototype.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-ninja/prototype.git"
+  },
+  "keywords": [
+    "prototyping",
+    "static",
+    "assets"
+  ],
+  "author": "Paulo P. Marinas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-ninja/prototype/issues"
+  },
+  "homepage": "https://github.com/code-ninja/prototype#readme",
+  "serve": {
+    "assets": "./public/assets",
+    "html": "./prototypes",
+    "port": 3000
+  },
+  "compile": {
+    "css": {
+      "src": "./assets/css/*.scss",
+      "watch": "./assets/css/**/*.scss",
+      "dest": "./public/assets/css",
+      "paths": [
+        "bower_components/bootstrap-sass/assets/stylesheets/",
+        "bower_components/font-awesome/scss/",
+        "node_modules/bootstrap-daterangepicker/"
+      ]
+    },
+    "js": {
+      "src": "./assets/js/*.js",
+      "watch": "./assets/js/**/*.js",
+      "dest": "./public/assets/js",
+      "paths": [
+        "bower_components/bootstrap-sass/assets/javascripts/",
+        "node_modules/bootstrap-daterangepicker/"
+      ]
+    }
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "bootstrap-daterangepicker": "^2.1.25",
+    "bower": "^1.8.0",
+    "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-bump": "^2.7.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-include": "^2.3.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-pxtorem": "^2.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0",
+    "gulp-util": "^3.0.8",
+    "moment": "^2.18.1",
+    "sortablejs": "^1.6.0",
+    "sprity": "^1.0.8"
+  }
+}

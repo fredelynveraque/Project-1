@@ -1,0 +1,84 @@
+// ==========================================================================
+// Icons
+// ==========================================================================
+
+.search-icon{
+  @extend .base-icon;
+  background-image: url("../../img/magnifying-glass.svg");
+  display: inline-block;
+  @media #{$medium-up} {
+    display: none;
+  }
+}
+
+.help-icon,
+.chat-icon,
+.notification-icon,
+.other-options-icon,
+.share-icon,
+.table-view-icon,
+.card-view-icon,
+.full-window-icon,
+.minimize-window-icon,
+.field-icon,
+.view-detais-icon,
+.profile-icon,
+.visual-map-icon{
+  @extend .base-icon;
+}
+
+.help-icon{
+  background-image: url("../../img/help-icon.svg");
+}
+
+.chat-icon{
+  background-image: url("../../img/chat-icon.svg");
+}
+
+.notification-icon{
+  background-image: url("../../img/notification-icon.svg");
+}
+
+.other-options-icon{
+  background-image: url("../../img/more-icon.svg");
+  height: 23px;
+}
+
+.share-icon{
+  background-image: url("../../img/share-option-icon.svg");
+}
+
+.card-view-icon{
+  background-image: url("../../img/card-view-icon.svg");
+}
+
+.table-view-icon{
+  background-image: url("../../img/table-view-icon.svg");
+}
+
+.full-window-icon{
+  background-image: url("../../img/full-window-icon.svg");
+}
+
+.minimize-window-icon{
+  background-image: url("../../img/minimize-window-icon.svg");
+}
+
+.field-icon{
+  background-image: url("../../img/fields-icon.svg");
+}
+
+.view-detais-icon{
+  background-image: url("../../img/view-details-icon.svg");
+  width: 15px;
+  height:15px;
+}
+
+.profile-icon{
+  background-image: url("../../img/building-icon.svg");
+}
+
+.visual-map-icon{
+  background-image: url("../../img/visual map-icon.svg");
+}
+

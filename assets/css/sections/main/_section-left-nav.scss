@@ -1,0 +1,38 @@
+// ==========================================================================
+// Layout - Horozontal Nav
+// ==========================================================================
+
+nav{
+
+  &.horizontal{
+
+    font-size:0;
+    margin-bottom: 30px;
+
+    a{
+      color:rgba($brand-text-color, 0.70);
+      border-bottom:1px solid rgba($brand-text-color, 0.15);
+      display:inline-block;
+      width: 33.33333333%;
+      text-align: center;
+      font-size:12px;
+      padding-bottom: 12px;
+
+      @media #{$small-only} {
+        font-size:18px;
+      }
+
+
+      &:hover,
+      &.active{
+        color:$brand-primary-color;
+      }
+
+      &.active{
+        font-weight: bold;
+        border-bottom:2px solid $brand-primary-color;
+      }
+
+    }
+  }
+}

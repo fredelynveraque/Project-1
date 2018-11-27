@@ -1,0 +1,52 @@
+// ==========================================================================
+// Layout - Top Nav
+// ==========================================================================
+
+.nav-section{
+  float:right;
+  text-align: right;
+  position: relative;
+  top:6px;
+
+  nav{
+  	position: inherit;
+    top: -7px;
+
+	  a{
+	  	margin-left:14px;
+
+	  	&.base-icon{
+	  		@include opacity(0.7);
+	  	}
+
+	  	&.base-icon:hover{
+	  		@include opacity(1);
+	  	}
+
+	  	img{
+	  		position: relative;
+	  		top:3px;
+
+          &.avatar-icon{
+            @extend .circle;
+            width:24px;
+            height:24px;
+            display:inline-block;
+          }
+	  	}
+
+        &:hover img.avatar-icon{
+          border: 1px solid white;
+        }
+
+        &.search-icon{
+          display: $none-value;
+          font-weight: bold;
+          @media #{$small-only} {
+            display: inline-block;
+          }
+        }
+	  }
+  }
+
+}
